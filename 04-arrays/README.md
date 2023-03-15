@@ -1,4 +1,4 @@
-# Arrays and slices (Go Fundamentals 05)
+# Arrays and slices (Go Fundamentals 04)
 
 Arrays allow you to store multiple elements of the same type in a variable in a particular order.
 They have a fixed capacity, which you define when you declare the variable.
@@ -28,4 +28,22 @@ Slices, just like arrays, are used to store multiple elements of the same time i
 But the length of the slice can grow and shrink as you see fit.
 
 `reflect.DeepEqual` is a nice function to use when comparing two slices
-> It's not type safe though, so the code will compile if you compare to different typed values (like comparing a string to a slice)
+> It's not type safe though, so the code will compile even if you compare to different typed values (like comparing a string to a slice)
+
+To assign a value to an index inside a slice the `=` operator is used.
+
+`make` lets you create a slice with a starting capacity you pass in.
+This implies that slices have a set capacity.
+Adding a 10th element to a slice that has a capacity of 2 will result in a runtime error.
+Using the `append` function, which takes a slice and new value,
+and returns a new slice with all the items in it, is better.
+
+The "tail" a collection is all items in the collection except the first one (the "head").
+
+To slice a slice (yes), the syntax is `slice[low:high]`. Omitting the value on one of the sides of the `:` captures everything on that side of it.
+e.g.
+```go
+numbers[1:] // this says 'take from 1 to the end'
+```
+
+The `len` function returns the length of the array or slice passed into it.
