@@ -23,8 +23,10 @@ func TestSomeFunction(t *testing.T) {
 	}
 }
 ```
+Note: `%q` is a formatting string to print strings.
 
-Also, remember to initialize a module in your working directory before doing anything. Your tests won't work otherwise. And... just do it.
+Also, remember to initialize a module in your working directory before doing anything.
+Your tests won't work otherwise. And... just do it.
 
 ### This is how the testing cycle goes:
 - Write a test.
