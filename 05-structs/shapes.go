@@ -2,7 +2,7 @@ package main
 
 import "math"
 
-type Shape interface {
+type Shape struct {
 	Area() float64
 }
 
