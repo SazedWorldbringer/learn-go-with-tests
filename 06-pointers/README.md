@@ -14,3 +14,22 @@ func (w *Wallet) Deposit(amount int) {
     w.balance += amount
 }
 ```
+
+Types are defined like this
+```go
+// type NewType OriginalType
+type Bitcoin int
+
+// to make Bitcoins you use this syntax
+Bitcoin(999)
+```
+
+A Stringer helps you format how your types are printed when used with the `%s` format strings.
+```go
+func (b Bitcoin) String() string {
+	return fmt.Sprintf("%d BTC", b)
+}
+```
+The syntax for creating a method on a type declaration is the same as it is on a struct.
+
+The `var` keyword allows us to define values global to the package.
