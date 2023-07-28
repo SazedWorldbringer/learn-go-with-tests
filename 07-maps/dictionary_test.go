@@ -49,6 +49,22 @@ func TestAdd(t *testing.T) {
 	})
 }
 
+func TestUpdate(t *testing.T) {
+	// instantiate and add word
+	word := "test"
+	definition := "this is just a test"
+	dictionary := Dictionary{word: definition}
+
+	// update existing definition
+	newDefinition := "new definition"
+	dictionary.Update(word, newDefinition)
+
+	assertDefinition(t, dictionary, word, newDefinition)
+}
+
+/* Helper functions */
+
+// Helper to assert definitions in the dictionary
 func assertDefinition(t testing.TB, dictionary Dictionary, word, definition string) {
 	t.Helper()
 	// look for the word in the dictionary
@@ -63,6 +79,7 @@ func assertDefinition(t testing.TB, dictionary Dictionary, word, definition stri
 	}
 }
 
+// Helper to assert if the definition is correct
 func assertStrings(t testing.TB, got, want string) {
 	t.Helper()
 	if got != want {
@@ -70,6 +87,7 @@ func assertStrings(t testing.TB, got, want string) {
 	}
 }
 
+// Helper to assert if correct error messages are returned
 func assertError(t testing.TB, got, want error) {
 	t.Helper()
 	if got != want {
